@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="hero">
+
+        <h1>💰 Expense Tracker Pro</h1>
+
+        <p class="tagline">
+            Track your income, expenses and manage your finances smartly
+        </p>
+
+    </div>
+
+    <div class="container">
+
+        <!-- Summary Cards -->
+        <div class="summary">
+
+            <div class="card">
+    <h3>💰 Income</h3>
+    <p id="income">₹0</p>
+</div>
+
+<div class="card">
+    <h3>📉 Expenses</h3>
+    <p id="expenses">₹0</p>
+</div>
+
+<div class="card">
+    <h3>🏦 Balance</h3>
+    <p id="balance">₹0</p>
+</div>
+
+        </div>
+
+        <!-- Transaction Form -->
+        
+<div class="transaction-card">
+
+    <h2>Add Income</h2>
+
+    <div class="income-form">
+
+        <input
+    type="text"
+    id="incomeSource"
+    placeholder="Income Source">
+
+<input
+    type="date"
+    id="incomeDate">
+
+<input
+    type="number"
+    id="incomeAmount"
+    placeholder="Income Amount">
+
+        <button onclick="addIncome()">
+            Add Income
+        </button>
+
+    </div>
+
+    <hr class="divider">
+
+    <h2>Add Expense</h2>
+
+    <div class="expense-form">
+
+        <input
+            type="text"
+            id="description"
+            placeholder="Description">
+
+        <input
+            type="date"
+            id="date">
+
+       
+
+        <input
+            type="number"
+            id="amount"
+            placeholder="Amount">
+
+        <button onclick="addTransaction()">
+            Add Transaction
+        </button>
+
+    </div>
+
+</div>
+
+        <!-- Search -->
+        <!-- Search -->
+<input
+    type="text"
+    id="search"
+    placeholder="🔍 Search expenses..."
+    onkeyup="displayTransactions()">
+
+<!-- Income History -->
+<h2 class="transaction-title">
+    Income History
+</h2>
+
+<div id="incomeList"></div>
+<select id="reportMonth">
+    <option value="0">January</option>
+    <option value="1">February</option>
+    <option value="2">March</option>
+    <option value="3">April</option>
+    <option value="4">May</option>
+    <option value="5">June</option>
+    <option value="6">July</option>
+    <option value="7">August</option>
+    <option value="8">September</option>
+    <option value="9">October</option>
+    <option value="10">November</option>
+    <option value="11">December</option>
+</select>
+<select id="reportYear">
+    <option value="2026">2026</option>
+    <option value="2027">2027</option>
+    <option value="2028">2028</option>
+    <option value="2029">2029</option>
+    <option value="2030">2030</option>
+</select>
+
+<button onclick="generateReport()" id="reportBtn">
+    📊 Generate Report
+</button>
+<button onclick="exportCSV()" id="exportBtn">
+    📥 Export CSV
+</button>
+
+<div id="monthlyReport"></div>
+
+<!-- Transactions -->
+<h2 class="transaction-title">
+    Transactions
+</h2>
+
+<ul id="transactionList"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

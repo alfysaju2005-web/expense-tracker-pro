@@ -1,0 +1,579 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(
+        135deg,
+        #0F172A,
+        #1E293B,
+        #334155
+    );
+    margin:0;
+    padding:20px;
+    min-height:100vh;
+}
+
+/* HEADER */
+
+.hero{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.hero h1{
+    color:white;
+    font-size:70px;
+    font-weight:800;
+    margin-bottom:10px;
+    text-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+
+.tagline{
+    color:#CBD5E1;
+    font-size:22px;
+    margin-top:0;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* CARDS */
+
+.summary{
+    display:flex;
+    gap:30px;
+    margin-bottom:40px;
+}
+
+.card{
+    flex:1;
+    background:white;
+    padding:25px;
+    min-height:180px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);
+    transition:0.3s;
+
+    position:relative;
+    overflow:hidden;
+}
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:#22C55E;
+}
+
+.summary .card:nth-child(2)::before{
+    background:#EF4444;
+}
+
+.summary .card:nth-child(3)::before{
+    background:#2563EB;
+}
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    color:#64748B;
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.card p{
+    font-size:38px;
+    font-weight:700;
+    margin:0;
+}
+
+#income{
+    color:#16A34A;
+}
+
+#expenses{
+    color:#EF4444;
+}
+
+#balance{
+    color:#2563EB;
+}
+
+/* TRANSACTION BOX */
+
+.transaction-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:25px;
+    padding:35px;
+    margin-bottom:35px;
+    backdrop-filter:blur(10px);
+}
+
+.transaction-card h2{
+    color:white;
+    margin-bottom:20px;
+    font-size:28px;
+    font-weight:700;
+}
+
+/* FORM */
+
+
+.form{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.form input,
+.form select{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#4B5563;
+    color:white;
+    font-size:16px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+.form input::placeholder{
+    color:#CBD5E1;
+}
+
+.form select option{
+    background:#334155;
+    color:white;
+}
+
+.form button{
+    background:#22C55E;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:15px 25px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.form button:hover{
+    background:#16A34A;
+}
+
+/* SEARCH */
+
+#search{
+    width:100%;
+    padding:18px;
+    border-radius:15px;
+    border:none;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    margin-bottom:25px;
+    box-sizing:border-box;
+    font-size:16px;
+}
+
+#search::placeholder{
+    color:#CBD5E1;
+}
+
+/* TRANSACTIONS */
+
+.transaction-title{
+    color:white;
+    font-size:38px;
+    margin-bottom:20px;
+}
+
+#transactionList{
+    list-style:none;
+    padding:0;
+}
+
+#transactionList li{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    margin-bottom:15px;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    font-size:18px;
+    font-weight:500;
+}
+
+#transactionList button{
+    background:#EF4444;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    body{
+        padding:15px;
+    }
+
+    .hero{
+        margin-bottom:25px;
+    }
+
+    .hero h1{
+        font-size:38px;
+        line-height:1.2;
+    }
+
+    .tagline{
+        font-size:16px;
+    }
+
+    .summary{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    .card{
+        min-height:auto;
+    }
+
+    .card p{
+        font-size:30px;
+    }
+
+    .transaction-title{
+        font-size:28px;
+    }
+
+    .transaction-card{
+        padding:20px;
+    }
+
+    .income-form{
+        grid-template-columns:1fr;
+    }
+
+    .expense-form{
+        grid-template-columns:1fr;
+    }
+
+    #transactionList li{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    #transactionList button{
+        width:100%;
+        margin-top:10px;
+    }
+
+    .income-card button{
+        width:100%;
+    }
+
+    #reportBtn{
+        width:100%;
+        margin-top:10px;
+    }
+
+    #reportMonth{
+        width:100%;
+        margin-right:0;
+        margin-bottom:10px;
+    }
+    #reportYear{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#4B5563;
+    color:white;
+    font-size:16px;
+    margin-right:10px;
+    margin-bottom:20px;
+    outline:none;
+}
+
+#reportYear option{
+    background:#334155;
+    color:white;
+}
+    #exportBtn{
+    width:100%;
+    margin-left:0;
+    margin-top:10px;
+}
+#reportYear{
+    width:100%;
+    margin-right:0;
+    margin-bottom:10px;
+}
+}
+.container{
+    animation:fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+#incomeList{
+    list-style:none;
+    padding:0;
+    margin-bottom:30px;
+}
+
+#incomeList li{
+    background:white;
+    padding:18px;
+    margin-bottom:12px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+    font-weight:600;
+    color:#16A34A;
+}
+#incomeList{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.income-card{
+    background:white;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.income-card h3{
+    margin-bottom:10px;
+    color:#0F172A;
+}
+
+.income-card .income-total{
+    color:#16A34A;
+    font-weight:bold;
+    font-size:22px;
+}
+
+.income-card .income-spent{
+    color:#EF4444;
+    margin-top:8px;
+}
+
+.income-card .income-balance{
+    color:#2563EB;
+    margin-top:8px;
+}
+input[type="number"]{
+    background:#4B5563 !important;
+    color:white !important;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
+
+input[type="number"]{
+    -moz-appearance:textfield;
+}
+/* INCOME FORM */
+
+.income-form{
+    display:grid;
+    grid-template-columns:
+        2fr
+        1.5fr
+        1.5fr
+        1fr;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+/* EXPENSE FORM */
+
+.expense-form{
+    display:grid;
+    grid-template-columns:
+        2fr
+        1.5fr
+        2fr
+        1.5fr;
+    gap:15px;
+    margin-bottom:15px;
+}
+/* DIVIDER */
+
+.divider{
+    border:none;
+    height:1px;
+    background:rgba(255,255,255,0.15);
+    margin:30px 0;
+}
+.income-form input,
+.expense-form input,
+.expense-form select{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#4B5563;
+    color:white;
+    font-size:16px;
+    box-sizing:border-box;
+    outline:none;
+}
+
+.income-form input::placeholder,
+.expense-form input::placeholder{
+    color:#CBD5E1;
+}
+.income-form button,
+.expense-form button{
+    background:#22C55E;
+    color:white;
+    border:none;
+    border-radius:12px;
+    padding:15px 25px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.income-form button:hover,
+.expense-form button:hover{
+    background:#16A34A;
+}
+.expense-form select option{
+    background:#334155;
+    color:white;
+}
+#reportBtn{
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:15px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+
+#reportBtn:hover{
+    background:#1D4ED8;
+}
+
+#monthlyReport{
+    background:white;
+    color:#1E293B;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:25px;
+    display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+/* REPORT MONTH DROPDOWN */
+
+#reportMonth{
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#4B5563;
+    color:white;
+    font-size:16px;
+    margin-right:10px;
+    margin-bottom:20px;
+    outline:none;
+}
+
+#reportMonth option{
+    background:#334155;
+    color:white;
+}
+
+/* INCOME DATE */
+
+.income-date{
+    color:#64748B;
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+/* EDIT BUTTON */
+
+.income-card button{
+    margin-top:15px;
+    background:#2563EB;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.income-card button:hover{
+    background:#1D4ED8;
+}
+
+/* REPORT CARD */
+
+#monthlyReport h2{
+    margin-top:0;
+    color:#0F172A;
+}
+
+#monthlyReport p{
+    font-size:18px;
+    margin:10px 0;
+}
+
+/* BETTER TRANSACTION WRAPPING */
+
+#transactionList li{
+    gap:15px;
+    flex-wrap:wrap;
+}
+#exportBtn{
+    background:#16A34A;
+    color:white;
+    border:none;
+    padding:15px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    margin-left:10px;
+    margin-bottom:20px;
+}
+
+#exportBtn:hover{
+    background:#15803D;
+}
